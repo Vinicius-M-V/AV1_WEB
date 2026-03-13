@@ -14,3 +14,18 @@ function renderizarTarefas() {
         listaUl.appendChild(li);    
     });
 }
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const textoTarefa = inputTarefa.value.trim();
+
+    if (textoTarefa === "") {
+        mensagemErro.textContent = "Erro, digite algo para iniciar"
+    } else {
+        mensagemErro.textContext = "";
+        tarefas.push(textoTarefa)
+        inputTarefa.value = "";
+        renderizarTarefas();
+    }
+});
